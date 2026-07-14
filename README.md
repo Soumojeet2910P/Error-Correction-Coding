@@ -8,12 +8,12 @@ The code is written to be configurable —  the codeword length N, message lengt
 
 The encoder implements the full construction and encoding pipeline:
 
-Base matrix (B) — auto-sized from N, K, z (generate_base_matrix), with a random search for a set of circulant shifts that produces a full-rank parity-check matrix.
-Lifting (build_parity_check_matrix) — expands B into the full H matrix by replacing each entry with a z x z circulant permutation block (circulant_permutation_matrix).
-Systematic form (to_systematic_form) — Gaussian elimination over GF(2) to reduce H into [P | I], with row/column pivoting.
-Generator matrix (derive_generator_matrix) — derives G = [I | Pᵀ].
-Encoding (encode) — v = u · G (mod 2).
-BPSK modulation (bpsk_modulate) — maps bits to +1/-1 symbols.
+Base matrix (B) — auto-sized from N, K, z (generate_base_matrix), with a random search for a set of circulant shifts that produces a full-rank parity-check matrix.  
+Lifting (build_parity_check_matrix) — expands B into the full H matrix by replacing each entry with a z x z circulant permutation block (circulant_permutation_matrix).  
+Systematic form (to_systematic_form) — Gaussian elimination over GF(2) to reduce H into [P | I], with row/column pivoting.  
+Generator matrix (derive_generator_matrix) — derives G = [I | Pᵀ].  
+Encoding (encode) — v = u · G (mod 2).  
+BPSK modulation (bpsk_modulate) — maps bits to +1/-1 symbols.  
 AWGN channel (awgn_noise_std, awgn_channel) — adds Gaussian noise at a specified Eb/N0 (dB), correctly accounting for the code rate.
 
 Also includes verify_all_codewords, a sanity check that encodes every
