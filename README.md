@@ -23,16 +23,15 @@ possible K-bit message and confirms H · vᵀ = 0 for all of them.
 
 The decoder implements the iterative hard-decision Bit-Flipping (BF) algorithm:
 
-Hard-decision demodulation (hard_decision_demodulate) — converts the continuous received samples y back into a binary vector z.
-Syndrome computation (compute_syndrome) — s = z · Hᵀ (mod 2).
-Unsatisfied-check counting (count_unsatisfied_checks) — computes f_n, the number of failed parity checks each bit participates in.
+Hard-decision demodulation (hard_decision_demodulate) — converts the continuous received samples y back into a binary vector z.  
+Syndrome computation (compute_syndrome) — s = z · Hᵀ (mod 2).  
+Unsatisfied-check counting (count_unsatisfied_checks) — computes f_n, the number of failed parity checks each bit participates in.  
 Bit selection and flipping (bit_flipping_decode) — supports two rules:
 
 rule="max" — flip the bit(s) with the largest f_n (with a tie_break option, see Known Limitations below)
 rule="threshold" — flip every bit with f_n greater than a fixed threshold T
 
-Message extraction (extract_message_bits) — since encoding is
-systematic, the first K bits of the decoded codeword are the message.
+Message extraction (extract_message_bits) — since encoding is systematic, the first K bits of the decoded codeword are the message.
 
 
 ### ber_simulation.ipynb
